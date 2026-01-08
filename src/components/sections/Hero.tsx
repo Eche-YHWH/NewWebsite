@@ -2,7 +2,7 @@ import Container from "../ui/Container";
 import Button from "../ui/Button";
 import Reveal from "../ui/Reveal";
 import dashboardImage from "../../assets/daash-hero.avif";
-import cloudBg from "../../assets/Clouds.png";
+import cloudsImg from "../../assets/Clouds.png";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
@@ -24,23 +24,27 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-32">
       {/* Sky background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        {/* Sky gradient stays */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-sky-200 via-sky-100 to-neutral-100" />
 
-        {/* Cloud image replaces white blobs */}
+        {/* Clouds (replaces the white blob divs) */}
         <img
-          src={cloudBg}
+          src={cloudsImg}
           alt=""
-          className="
-            absolute
-            inset-0
-            h-full
-            w-full
-            object-cover
-            object-top
-            opacity-90
-          "
+          aria-hidden="true"
+          className="absolute left-6 top-28 w-[320px] opacity-70 blur-[0.5px] sm:left-10 sm:top-28 sm:w-[420px]"
+        />
+        <img
+          src={cloudsImg}
+          alt=""
+          aria-hidden="true"
+          className="absolute right-4 top-36 w-[360px] opacity-60 blur-[0.5px] sm:right-8 sm:top-36 sm:w-[460px]"
+        />
+        <img
+          src={cloudsImg}
+          alt=""
+          aria-hidden="true"
+          className="absolute left-1/2 top-52 w-[300px] -translate-x-1/2 opacity-55 blur-[0.5px] sm:top-56 sm:w-[420px]"
         />
       </div>
 
@@ -82,11 +86,7 @@ export default function Hero() {
                 transformStyle: "preserve-3d",
               }}
               transition={{ type: "spring", stiffness: 120, damping: 20 }}
-              className="
-                relative
-                top-10 sm:top-12 lg:top-16
-                will-change-transform
-              "
+              className="relative top-10 will-change-transform sm:top-12 lg:top-16"
             >
               <div className="rounded-[28px] border border-black/10 bg-white/60 p-3 shadow-sm backdrop-blur">
                 <img

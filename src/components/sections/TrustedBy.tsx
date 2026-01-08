@@ -1,9 +1,23 @@
 import Container from "../ui/Container";
 import Reveal from "../ui/Reveal";
 import { motion } from "framer-motion";
-import { itemStagger, sectionReveal, easeOutSoft } from "../../motion/presets";
 
-const logos = ["Amsterdam", "Savannah", "Milano", "Luminous", "Thrive", "Amsterdam"];
+import cityLogo from "../../assets/logo/city.png";
+import grillLogo from "../../assets/logo/grill.png";
+import spicyLogo from "../../assets/logo/spicy.png";
+import wingsLogo from "../../assets/logo/wings.png";
+import papasLogo from "../../assets/logo/papas.png";
+
+const logos = [
+  { src: cityLogo, alt: "City Subs" },
+  { src: grillLogo, alt: "Grill Shack" },
+  { src: spicyLogo, alt: "Spicy Corner" },
+  { src: wingsLogo, alt: "Wings Bistro" },
+  { src: papasLogo, alt: "Papa's Grill" },
+];
+
+// duplicate for endless loop
+const marqueeLogos = [...logos, ...logos];
 
 export default function TrustedBy() {
   return (
@@ -14,24 +28,37 @@ export default function TrustedBy() {
             Trusted by 7,000+ teams, founders and studios
           </p>
 
-          <motion.div
-            variants={itemStagger}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.25 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-4"
-          >
-            {logos.map((name, idx) => (
-              <motion.div
-                key={`${name}-${idx}`}
-                variants={sectionReveal}
-                transition={{ duration: 0.55, ease: easeOutSoft }}
-                className="text-lg font-semibold tracking-tight text-black/18"
-              >
-                {name}
-              </motion.div>
-            ))}
-          </motion.div>
+          {/* Marquee with edge fade */}
+          <div className="relative mt-8 overflow-hidden">
+            {/* left fade */}
+            <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-white to-transparent sm:w-24" />
+            {/* right fade */}
+            <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-white to-transparent sm:w-24" />
+
+            <motion.div
+              className="flex w-max items-center gap-x-12 sm:gap-x-16"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                duration: 22,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+            >
+              {marqueeLogos.map((logo, idx) => (
+                <div
+                  key={`${logo.alt}-${idx}`}
+                  className="flex items-center justify-center"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-7 w-auto opacity-60 sm:h-9 md:h-10"
+                    draggable={false}
+                  />
+                </div>
+              ))}
+            </motion.div>
+          </div>
         </Container>
       </Reveal>
     </section>
