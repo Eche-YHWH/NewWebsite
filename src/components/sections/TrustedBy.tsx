@@ -2,11 +2,11 @@ import Container from "../ui/Container";
 import Reveal from "../ui/Reveal";
 import { motion } from "framer-motion";
 
-import cityLogo from "../../assets/logo/city.png";
-import grillLogo from "../../assets/logo/grill.png";
-import spicyLogo from "../../assets/logo/spicy.png";
-import wingsLogo from "../../assets/logo/wings.png";
-import papasLogo from "../../assets/logo/papas.png";
+import cityLogo from "../../assets/Logo/city.png";
+import grillLogo from "../../assets/Logo/grill.png";
+import spicyLogo from "../../assets/Logo/spicy.png";
+import wingsLogo from "../../assets/Logo/wings.png";
+import papasLogo from "../../assets/Logo/papas.png";
 
 const logos = [
   { src: cityLogo, alt: "City Subs" },
