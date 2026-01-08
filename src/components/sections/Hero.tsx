@@ -1,7 +1,7 @@
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import Reveal from "../ui/Reveal";
-import dashboardImage from "../../assets/daash-hero.avif";
+import dashboardImage from "../../assets/daash-hero2.png";
 import cloudsImg from "../../assets/Clouds.png";
 
 import { motion, useScroll, useTransform } from "framer-motion";
