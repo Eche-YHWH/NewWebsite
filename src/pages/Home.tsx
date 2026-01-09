@@ -9,6 +9,7 @@ import Pricing from "../components/sections/Pricing";
 import BlogTeaser from "../components/sections/BlogTeaser";
 import Community from "../components/sections/Community";
 import FinalCTA from "../components/sections/FinalCTA";
+import CloudDivider from "../components/sections/CloudDivider";
 import Footer from "../components/sections/Footer";
 
 import splitImg1 from "../assets/device-web.avif";
@@ -20,43 +21,56 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <TrustedBy />
 
-        <DeviceShowcase />
+        {/* Global page gradient starts here (TrustedBy) and runs to Footer */}
+        <div className="relative overflow-hidden bg-gradient-to-b from-white via-white to-sky-100">
+          <TrustedBy />
 
-        <FeatureSplit
-          eyebrow="PROJECT MANAGEMENT"
-          title="Keep every project moving forward"
-          text="Plan, assign, and deliver work in one place. Stay organized and keep clients confident."
-          chips={[{ label: "Tasks" }, { label: "Time tracking" }, { label: "Timesheets" }, { label: "Reports" }]}
-          imageSrc={splitImg1}
-          imageAlt="Projects preview"
-        />
+          <DeviceShowcase />
 
-        <FeatureSplit
-          eyebrow="FINANCIAL MANAGEMENT"
-          title="Track income, get paid, stress less"
-          text="Create invoices, track expenses, and keep tabs on earnings. Everything in one place."
-          chips={[{ label: "Invoicing" }, { label: "Budgets" }, { label: "Forecasting" }, { label: "Integrations" }]}
-          imageSrc={splitImg2}
-          imageAlt="Reports preview"
-          flip
-        />
+          <FeatureSplit
+            eyebrow="PROJECT MANAGEMENT"
+            title="Keep every project moving forward"
+            text="Plan, assign, and deliver work in one place. Stay organized and keep clients confident."
+            chips={[
+              { label: "Tasks" },
+              { label: "Time tracking" },
+              { label: "Timesheets" },
+              { label: "Reports" },
+            ]}
+            imageSrc={splitImg1}
+            imageAlt="Projects preview"
+          />
 
-        <FeaturesBlock />
-        <Testimonials />
-        <Pricing />
-        <BlogTeaser />
+          <FeatureSplit
+            eyebrow="FINANCIAL MANAGEMENT"
+            title="Track income, get paid, stress less"
+            text="Create invoices, track expenses, and keep tabs on earnings. Everything in one place."
+            chips={[
+              { label: "Invoicing" },
+              { label: "Budgets" },
+              { label: "Forecasting" },
+              { label: "Integrations" },
+            ]}
+            imageSrc={splitImg2}
+            imageAlt="Reports preview"
+            flip
+          />
 
-        {/* NEW SECTION */}
-        <Community />
+          <FeaturesBlock />
+          <Testimonials />
+          <Pricing />
+          <BlogTeaser />
+          <Community />
 
-        {/* FINAL CTA */}
-        <FinalCTA />
+          <FinalCTA />
 
-        <Footer />
+          {/* Clouds appear between Final CTA and Footer */}
+          <CloudDivider />
+
+          <Footer />
+        </div>
       </main>
     </>
   );
 }
-

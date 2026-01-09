@@ -90,13 +90,12 @@ export default function Community() {
     if (!el) return;
 
     const measure = () => {
-      // scrollWidth is total, we duplicated content, half is one full set
       halfWidthRef.current = el.scrollWidth / 2;
     };
 
     measure();
 
-    const ro = new ResizeObserver(() => measure());
+    const ro = new ResizeObserver(measure);
     ro.observe(el);
 
     return () => ro.disconnect();
@@ -107,7 +106,7 @@ export default function Community() {
     const el = scrollerRef.current;
     if (!el) return;
 
-    const speedPxPerFrame = 0.6; // adjust if you want faster/slower
+    const speedPxPerFrame = 0.6;
 
     const tick = () => {
       if (!isHolding) {
@@ -140,8 +139,6 @@ export default function Community() {
     dragRef.current.pointerId = e.pointerId;
 
     setIsHolding(true);
-
-    // capture pointer so dragging still works if you leave the container
     el.setPointerCapture(e.pointerId);
   };
 
@@ -153,7 +150,6 @@ export default function Community() {
     const dx = e.clientX - dragRef.current.startX;
     el.scrollLeft = dragRef.current.startScrollLeft - dx;
 
-    // keep it seamless when dragging too
     const half = halfWidthRef.current;
     if (half > 0) {
       if (el.scrollLeft < 0) el.scrollLeft += half;
@@ -167,25 +163,24 @@ export default function Community() {
     setIsHolding(false);
   };
 
-    const onPointerUp = () => {
+  const onPointerUp = () => {
     const el = scrollerRef.current;
     if (el && dragRef.current.pointerId !== -1) {
-        try {
+      try {
         el.releasePointerCapture(dragRef.current.pointerId);
-        } catch {
+      } catch {
         // ignore
-        }
+      }
     }
     endHold();
-    };
-
+  };
 
   const onPointerCancel = () => {
     endHold();
   };
 
   return (
-    <section className="relative py-16 sm:py-20">
+    <section className="bg-sky-50 py-16 sm:py-20">
       <Container>
         <Reveal>
           <div className="text-center">
@@ -199,16 +194,22 @@ export default function Community() {
           </div>
 
           <div className="relative mt-10">
-            {/* edge fades */}
-            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent" />
+            {/* Edge blur + fade (cleaner cut) */}
+            <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20">
+              <div className="absolute inset-0 bg-gradient-to-r from-sky-50 to-transparent" />
+              <div className="absolute inset-0 backdrop-blur-[6px] [mask-image:linear-gradient(to_right,black,transparent)] [--webkit-mask-image:linear-gradient(to_right,black,transparent)]" />
+            </div>
+
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20">
+              <div className="absolute inset-0 bg-gradient-to-l from-sky-50 to-transparent" />
+              <div className="absolute inset-0 backdrop-blur-[6px] [mask-image:linear-gradient(to_left,black,transparent)] [--webkit-mask-image:linear-gradient(to_left,black,transparent)]" />
+            </div>
 
             {/* draggable scroller */}
             <div
               ref={scrollerRef}
               className={[
-                "relative overflow-hidden",
-                "select-none",
+                "relative overflow-hidden select-none",
                 isHolding ? "cursor-grabbing" : "cursor-grab",
               ].join(" ")}
               onPointerDown={onPointerDown}
@@ -216,7 +217,6 @@ export default function Community() {
               onPointerUp={onPointerUp}
               onPointerCancel={onPointerCancel}
             >
-              {/* hide scrollbar if it ever appears */}
               <style>{`
                 .hide-scrollbar::-webkit-scrollbar { display: none; }
                 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
@@ -232,11 +232,9 @@ export default function Community() {
                     className="
                       block w-[340px]
                       rounded-[26px]
-                      border border-black/10
-                      bg-white/65
+                      bg-white
                       p-8
                       shadow-sm
-                      backdrop-blur
                       sm:w-[380px]
                     "
                     draggable={false}
@@ -266,11 +264,11 @@ export default function Community() {
                           className="
                             inline-flex items-center gap-2
                             rounded-full
-                            border border-black/10
-                            bg-white/70
+                            bg-white
                             px-5 py-3
                             text-sm font-medium text-black/70
                             shadow-sm
+                            ring-1 ring-black/10
                           "
                         >
                           {c.cta}

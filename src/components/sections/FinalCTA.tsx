@@ -1,43 +1,51 @@
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import Reveal from "../ui/Reveal";
+import { motion } from "framer-motion";
 
 import phoneImg from "../../assets/mobile.png";
 
 export default function FinalCTA() {
+  // Keep this value the same as the footer card radius for perfect rhythm
+  const CARD_RADIUS = "rounded-[34px]";
+
   return (
     <section className="relative py-16 sm:py-20">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-sky-50 via-white to-white" />
+      {/* section sky background */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-sky-100" />
 
       <Container>
         <Reveal>
-          {/* OUTER WRAPPER: no clipping, so phone can spill out */}
+          {/* OUTER WRAPPER */}
           <div className="relative">
-            {/* CARD: clipped for the nice rounded frame */}
-            <div
-              className="
-                relative overflow-hidden
-                rounded-[34px]
-                border border-black/10
-                bg-gradient-to-b from-sky-100 via-sky-50 to-white
-                px-8 py-14
-                shadow-sm
-                sm:px-12
-                lg:px-14
-              "
+            {/* CARD */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className={[
+                "relative overflow-hidden",
+                CARD_RADIUS,
+                // match footer white/glass feel
+                "bg-white/70 backdrop-blur",
+                "px-8 py-14 sm:px-12 lg:px-14",
+                // remove shadow on mobile, add it back from sm
+                "shadow-none sm:shadow-sm",
+              ].join(" ")}
             >
               {/* soft depth */}
               <div className="pointer-events-none absolute inset-0">
-                <div className="absolute -left-28 -top-28 h-80 w-80 rounded-full bg-white/70 blur-3xl" />
-                <div className="absolute left-24 top-10 h-64 w-64 rounded-full bg-white/60 blur-3xl" />
-                <div className="absolute -right-24 top-6 h-96 w-96 rounded-full bg-white/55 blur-3xl" />
-                <div className="absolute inset-0 bg-gradient-to-b from-sky-200/25 via-transparent to-white/85" />
+                <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-white/80 blur-3xl" />
+                <div className="absolute left-32 top-16 h-60 w-60 rounded-full bg-white/70 blur-3xl" />
+                <div className="absolute -right-28 top-10 h-96 w-96 rounded-full bg-white/65 blur-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-white/85" />
               </div>
 
               {/* dotted texture on right */}
               <div
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-y-0 right-0 w-[55%] opacity-[0.55]"
+                className="pointer-events-none absolute inset-y-0 right-0 w-[55%] opacity-[0.35]"
                 style={{
                   backgroundImage:
                     "radial-gradient(rgba(0,0,0,0.12) 1px, transparent 1px)",
@@ -67,15 +75,15 @@ export default function FinalCTA() {
                   </div>
                 </div>
 
-                {/* Right spacer so text doesn't collide */}
-                <div className="relative">
-                  <div className="h-[300px] sm:h-[360px]" />
+                {/* Right spacer: ONLY needed on lg+ since phone shows only on sm+ and overlaps on wide layouts */}
+                <div className="relative hidden lg:block">
+                  <div className="h-[360px]" />
                 </div>
               </div>
 
-              {/* bottom fade so forearm cut feels intentional */}
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-white/75" />
-            </div>
+              {/* bottom fade */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-white/80" />
+            </motion.div>
 
             {/* PHONE: hidden on mobile, visible from sm up */}
             <div className="pointer-events-none absolute right-6 top-0 z-10 hidden sm:block sm:right-10 lg:right-14">
