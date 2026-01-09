@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import daashLogo from "../../assets/Daash Final logo.svg";
+
 
 import Container from "../ui/Container";
 import Button from "../ui/Button";
@@ -120,12 +122,21 @@ export default function Navbar() {
             ].join(" ")}
           >
             {/* Logo group */}
-            <motion.div layout layoutId="nav-logo" className="flex items-center gap-2">
-              <motion.div layout layoutId="nav-mark" className="h-6 w-6 rounded-full bg-black/90" />
-              <motion.span layout layoutId="nav-name" className="text-sm font-semibold">
-                Daash
-              </motion.span>
+            <motion.div
+              layout
+              layoutId="nav-logo"
+              className="flex items-center"
+            >
+              <motion.img
+                layout
+                layoutId="nav-mark"
+                src={daashLogo}
+                alt="Daash"
+                draggable={false}
+                className="h-8 w-auto object-contain"
+              />
             </motion.div>
+
 
             {/* Desktop links */}
             <motion.nav
