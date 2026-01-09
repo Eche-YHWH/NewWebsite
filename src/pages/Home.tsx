@@ -7,6 +7,7 @@ import FeaturesBlock from "../components/sections/FeaturesBlock";
 import Testimonials from "../components/sections/Testimonials";
 import Pricing from "../components/sections/Pricing";
 import BlogTeaser from "../components/sections/BlogTeaser";
+import FinalCTA from "../components/sections/FinalCTA";
 import Footer from "../components/sections/Footer";
 
 import splitImg1 from "../assets/device-web.avif";
@@ -55,7 +56,7 @@ export default function Home() {
         <Testimonials />
         <Pricing />
         <BlogTeaser />
-
+        <FinalCTA />
         <Footer />
       </main>
     </>
