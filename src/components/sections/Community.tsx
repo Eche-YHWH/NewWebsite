@@ -167,17 +167,18 @@ export default function Community() {
     setIsHolding(false);
   };
 
-  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    const onPointerUp = () => {
     const el = scrollerRef.current;
     if (el && dragRef.current.pointerId !== -1) {
-      try {
+        try {
         el.releasePointerCapture(dragRef.current.pointerId);
-      } catch {
+        } catch {
         // ignore
-      }
+        }
     }
     endHold();
-  };
+    };
+
 
   const onPointerCancel = () => {
     endHold();
