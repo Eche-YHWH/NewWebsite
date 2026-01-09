@@ -107,7 +107,7 @@ export default function Community() {
     const el = scrollerRef.current;
     if (!el) return;
 
-    const speedPxPerFrame = 0.9; // adjust if you want faster/slower
+    const speedPxPerFrame = 0.6; // adjust if you want faster/slower
 
     const tick = () => {
       if (!isHolding) {
