@@ -125,7 +125,7 @@ export default function Navbar() {
             <motion.div
               layout
               layoutId="nav-logo"
-              className="flex items-center"
+              className="ml-2 flex items-center"
             >
               <motion.img
                 layout
