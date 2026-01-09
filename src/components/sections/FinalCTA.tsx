@@ -67,7 +67,7 @@ export default function FinalCTA() {
                   </div>
                 </div>
 
-                {/* Right spacer inside the card so text doesn't collide */}
+                {/* Right spacer so text doesn't collide */}
                 <div className="relative">
                   <div className="h-[300px] sm:h-[360px]" />
                 </div>
@@ -77,8 +77,8 @@ export default function FinalCTA() {
               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-white/75" />
             </div>
 
-            {/* PHONE: placed OUTSIDE the clipped card, so top can show */}
-            <div className="pointer-events-none absolute right-6 top-0 z-10 sm:right-10 lg:right-14">
+            {/* PHONE: hidden on mobile, visible from sm up */}
+            <div className="pointer-events-none absolute right-6 top-0 z-10 hidden sm:block sm:right-10 lg:right-14">
               <img
                 src={phoneImg}
                 alt="Daash mobile preview"
