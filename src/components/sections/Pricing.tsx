@@ -31,7 +31,7 @@ const plans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="bg-sky-80/50 py-24">
+    <section id="pricing" className="bg-sky-90/80 py-24">
       <Reveal>
         <Container className="text-center">
           <p className="text-xs font-semibold tracking-widest text-black/45">PRICING</p>

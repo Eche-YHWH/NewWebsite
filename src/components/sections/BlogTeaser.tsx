@@ -4,7 +4,7 @@ import blogCover from "../../assets/blog-cover.avif";
 
 export default function BlogTeaser() {
   return (
-    <section id="blog" className="bg-sky-60 py-24">
+    <section id="blog" className="bg-sky-80/60 py-24">
       <Reveal>
         <Container className="text-center">
           <p className="text-xs font-semibold tracking-widest text-black/45">BLOG</p>

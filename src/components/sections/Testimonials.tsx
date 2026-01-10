@@ -27,7 +27,7 @@ const cards = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-sky-50/60 py-24">
+    <section className="bg-sky-90 py-24">
       <Reveal>
         <Container className="text-center">
           <h2 className="mx-auto max-w-4xl text-5xl font-semibold tracking-tight text-black">

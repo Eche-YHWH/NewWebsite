@@ -180,7 +180,7 @@ export default function Community() {
   };
 
   return (
-    <section className="bg-sky-50 py-16 sm:py-20">
+    <section className="bg-sky-60/50 py-16 sm:py-20">
       <Container>
         <Reveal>
           <div className="text-center">

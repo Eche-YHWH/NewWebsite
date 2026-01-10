@@ -33,7 +33,7 @@ const smallCards = [
 
 export default function FeaturesBlock() {
   return (
-    <section id="features" className="bg-neutral-100/70 py-24">
+    <section id="features" className="bg-sky-90 py-24">
       <Reveal>
         <Container className="text-center">
           <p className="text-xs font-semibold tracking-widest text-black/45">FEATURES</p>
