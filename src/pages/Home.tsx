@@ -38,7 +38,7 @@ export default function Home() {
               { label: "Instant storefront" },
               { label: "Product catalog" },
               { label: "Online orders" },
-              { label: "Customer emails" },
+              { label: "Secure checkout" },
             ]}
             imageSrc={splitImg1}
             imageAlt="Daash online store builder showing products and customer orders"
