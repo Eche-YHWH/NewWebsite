@@ -12,6 +12,8 @@ import FinalCTA from "../components/sections/FinalCTA";
 import CloudDivider from "../components/sections/CloudDivider";
 import Footer from "../components/sections/Footer";
 
+import { Globe, Boxes, Monitor } from "lucide-react";
+
 import splitImg1 from "../assets/device-web.avif";
 import splitImg2 from "../assets/device-mobile.avif";
 
@@ -22,69 +24,96 @@ export default function Home() {
       <main>
         <Hero />
 
-        {/* Global page gradient starts here (TrustedBy) and runs to Footer */}
         <div className="relative overflow-hidden bg-gradient-to-b from-white via-white to-sky-100">
           <TrustedBy />
-
           <DeviceShowcase />
 
+          {/* ONLINE STORE BUILDER */}
           <FeatureSplit
-            eyebrow="ONLINE STORE BUILDER"
-            title="Set up your online store and start selling anywhere"
-            text="Create a professional online store in minutes. Add products, accept orders, and sell to customers online with a storefront built to scale your business."
+            eyebrow="ONLINE STORE"
+            eyebrowIcon={<Globe className="h-4 w-4 text-black/70" />}
+            title="Build your online store and sell anywhere"
+            text="Create a clean, professional online store in minutes. Add products, share your store link, and start selling to customers online, anytime, from anywhere."
             chips={[
-              { label: "Storefront setup" },
-              { label: "Product listings" },
+              { label: "Instant storefront" },
+              { label: "Product catalog" },
+              { label: "Online orders" },
               { label: "Customer emails" },
-              { label: "Order management" },
             ]}
             imageSrc={splitImg1}
-            imageAlt="Daash online store builder dashboard showing products and orders"
+            imageAlt="Daash online store builder showing products and customer orders"
           />
 
+          {/* INVENTORY, SALES & CUSTOMERS */}
           <FeatureSplit
-          eyebrow="INVENTORY & SALES DASHBOARD"
-          title="Manage products, track sales, and see what’s working"
-          text="Track inventory in real time, monitor daily sales, and understand performance from a single dashboard. Get clear insights to focus on what drives growth in your business."
-          chips={[
-            { label: "Inventory tracking" },
-            { label: "Sales analytics" },
-            { label: "Performance insights" },
-            { label: "Real-time reports" },
-          ]}
-          imageSrc={splitImg2}
-          imageAlt="Daash sales and inventory analytics dashboard"
-          flip
-        />
+            eyebrow="INVENTORY & SALES"
+            eyebrowIcon={<Boxes className="h-4 w-4 text-black/70" />}
+            title="Manage products, track sales, and understand your customers"
+            text="Stay in control of your business with real-time inventory, daily sales tracking, and a clear view of what is selling. See your best products, top customers, and business performance from one dashboard."
+            chips={[
+              { label: "Inventory management" },
+              { label: "Sales tracking" },
+              { label: "Customer insights" },
+              { label: "Business analytics" },
+            ]}
+            imageSrc={splitImg2}
+            imageAlt="Daash inventory, sales, and customer analytics dashboard"
+            flip
+          />
 
-        <FeatureSplit
-        eyebrow="POINT OF SALE (POS)"
-        title="Sell in-store and track every sale automatically"
-        text="Use Daash POS to sell in your physical store and keep sales, inventory, and revenue in sync. Every transaction updates your dashboard instantly, so nothing is tracked manually."
-        chips={[
-          { label: "In-store sales" },
-          { label: "Automatic stock updates" },
-          { label: "Daily sales tracking" },
-          { label: "Unified reports" },
-        ]}
-        imageSrc={splitImg1}
-        imageAlt="Daash point of sale system showing in-store transactions and synced inventory"
-      />
+          {/* POINT OF SALE */}
+          <FeatureSplit
+            eyebrow="POINT OF SALE (POS)"
+            eyebrowIcon={<Monitor className="h-4 w-4 text-black/70" />}
+            title="Sell in-store and track every sale automatically"
+            text="Use Daash POS to sell in your physical store and keep everything in sync. Products, inventory, and sales update instantly, so you always know what was sold today without manual counting."
+            chips={[
+              { label: "Quick checkout" },
+              { label: "Receipts" },
+              { label: "Cashier mode" },
+              { label: "Stock sync" },
+            ]}
+            imageSrc={splitImg1}
+            imageAlt="Daash point of sale system tracking in-store sales and inventory"
+          />
 
           <FeaturesBlock />
           <Testimonials />
           <Pricing />
           <BlogTeaser />
           <Community />
-
           <FinalCTA />
-
-          {/* Clouds appear between Final CTA and Footer */}
           <CloudDivider />
-
           <Footer />
         </div>
       </main>
     </>
+  );
+}
+
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Daash",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "Daash helps small businesses build an online store, manage inventory, and sell in-store with POS.",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "NGN",
+    category: "Free",
+  },
+  url: "https://daashapp.co",
+};
+
+export function JsonLd() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
   );
 }
