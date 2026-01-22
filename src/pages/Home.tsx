@@ -29,33 +29,47 @@ export default function Home() {
           <DeviceShowcase />
 
           <FeatureSplit
-            eyebrow="PROJECT MANAGEMENT"
-            title="Keep every project moving forward"
-            text="Plan, assign, and deliver work in one place. Stay organized and keep clients confident."
+            eyebrow="ONLINE STORE BUILDER"
+            title="Set up your online store and start selling anywhere"
+            text="Create a professional online store in minutes. Add products, accept orders, and sell to customers online with a storefront built to scale your business."
             chips={[
-              { label: "Tasks" },
-              { label: "Time tracking" },
-              { label: "Timesheets" },
-              { label: "Reports" },
+              { label: "Storefront setup" },
+              { label: "Product listings" },
+              { label: "Customer emails" },
+              { label: "Order management" },
             ]}
             imageSrc={splitImg1}
-            imageAlt="Projects preview"
+            imageAlt="Daash online store builder dashboard showing products and orders"
           />
 
           <FeatureSplit
-            eyebrow="FINANCIAL MANAGEMENT"
-            title="Track income, get paid, stress less"
-            text="Create invoices, track expenses, and keep tabs on earnings. Everything in one place."
-            chips={[
-              { label: "Invoicing" },
-              { label: "Budgets" },
-              { label: "Forecasting" },
-              { label: "Integrations" },
-            ]}
-            imageSrc={splitImg2}
-            imageAlt="Reports preview"
-            flip
-          />
+          eyebrow="INVENTORY & SALES DASHBOARD"
+          title="Manage products, track sales, and see what’s working"
+          text="Track inventory in real time, monitor daily sales, and understand performance from a single dashboard. Get clear insights to focus on what drives growth in your business."
+          chips={[
+            { label: "Inventory tracking" },
+            { label: "Sales analytics" },
+            { label: "Performance insights" },
+            { label: "Real-time reports" },
+          ]}
+          imageSrc={splitImg2}
+          imageAlt="Daash sales and inventory analytics dashboard"
+          flip
+        />
+
+        <FeatureSplit
+        eyebrow="POINT OF SALE (POS)"
+        title="Sell in-store and track every sale automatically"
+        text="Use Daash POS to sell in your physical store and keep sales, inventory, and revenue in sync. Every transaction updates your dashboard instantly, so nothing is tracked manually."
+        chips={[
+          { label: "In-store sales" },
+          { label: "Automatic stock updates" },
+          { label: "Daily sales tracking" },
+          { label: "Unified reports" },
+        ]}
+        imageSrc={splitImg1}
+        imageAlt="Daash point of sale system showing in-store transactions and synced inventory"
+      />
 
           <FeaturesBlock />
           <Testimonials />
