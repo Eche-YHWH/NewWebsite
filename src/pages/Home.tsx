@@ -97,7 +97,7 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "Daash",
   applicationCategory: "BusinessApplication",
-  operatingSystem: "Web",
+  operatingSystem: ["Web", "desktop", "iOS", "Android"],
   description:
     "Daash helps small businesses build an online store, manage inventory, and sell in-store with POS.",
   offers: {
