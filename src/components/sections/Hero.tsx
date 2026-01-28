@@ -30,7 +30,7 @@ export default function Hero() {
       "pharmacy",
       "grocery shop",
       "electronics store",
-      "service business",
+      "service",
     ],
     [],
   );

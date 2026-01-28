@@ -11,6 +11,7 @@ import Community from "../components/sections/Community";
 import FinalCTA from "../components/sections/FinalCTA";
 import CloudDivider from "../components/sections/CloudDivider";
 import Footer from "../components/sections/Footer";
+import Integrations from "../components/sections/Integrations";
 
 import { Globe, Boxes, Monitor } from "lucide-react";
 
@@ -78,6 +79,7 @@ export default function Home() {
           />
 
           <FeaturesBlock />
+          <Integrations />
           <Testimonials />
           <Pricing />
           <BlogTeaser />

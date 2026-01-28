@@ -5,29 +5,32 @@ import { itemStagger, sectionReveal, easeOutSoft } from "../../motion/presets";
 
 const bigCards = [
   {
-    title: "Smart, flexible, built around your workflow",
+    title: "Online store builder that is easy to launch",
     text:
-      "Personalize the look and layout so it fits how you work, not the other way around.",
+      "Create your storefront, list products, and start taking orders fast. Daash helps you sell online with a clean checkout and simple order management.",
   },
   {
-    title: "Works with tools you already use",
+    title: "Inventory and sales dashboard in one view",
     text:
-      "Connect your stack and keep your work organized in one place.",
+      "Track stock levels, monitor daily sales, and see what is selling. Get clear reports so you can restock on time and focus on what works.",
   },
 ];
 
 const smallCards = [
   {
-    title: "Collaborate in real time",
-    text: "Keep comments, updates, and work discussions together.",
+    title: "POS for in-store sales",
+    text:
+      "Sell in your shop and track every sale automatically. Products, inventory, and revenue stay in sync.",
   },
   {
-    title: "Speaks your language",
-    text: "Set preferences like currency, time, and date formats.",
+    title: "Customer management and follow-ups",
+    text:
+      "See your best customers, keep notes, and send updates or offers when it matters.",
   },
   {
-    title: "View things your way",
-    text: "Switch between views like cards, list, timeline, and calendar.",
+    title: "Team access and roles",
+    text:
+      "Add staff, assign roles, and keep operations tidy without sharing one login.",
   },
 ];
 
@@ -38,9 +41,9 @@ export default function FeaturesBlock() {
         <Container className="text-center">
           <p className="text-xs font-semibold tracking-widest text-black/45">FEATURES</p>
           <h2 className="mx-auto mt-4 max-w-3xl text-5xl font-semibold tracking-tight text-black">
-            Built for teams,
+            Built for growing businesses,
             <br />
-            powered by simplicity
+            simple for daily use
           </h2>
         </Container>
       </Reveal>
