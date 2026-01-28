@@ -1,4 +1,3 @@
-import React from "react";
 import { ArrowRight } from "lucide-react";
 
 // ✅ correct relative path from: src/components/sections/Integrations.tsx
