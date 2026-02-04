@@ -12,6 +12,7 @@ import FinalCTA from "../components/sections/FinalCTA";
 import CloudDivider from "../components/sections/CloudDivider";
 import Footer from "../components/sections/Footer";
 import Integrations from "../components/sections/Integrations";
+import FAQ from "../components/sections/FAQ";
 
 import { Globe, Boxes, Monitor } from "lucide-react";
 
@@ -84,6 +85,7 @@ export default function Home() {
           <Pricing />
           <BlogTeaser />
           <Community />
+          <FAQ />
           <FinalCTA />
           <CloudDivider />
           <Footer />

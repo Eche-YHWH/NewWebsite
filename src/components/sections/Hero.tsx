@@ -149,7 +149,7 @@ export default function Hero() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-base text-black/60 sm:text-lg">
-            Track what you sell, receive orders online, and manage daily operations from your web or mobile app.
+            Sell online and in-store with Daash. Create your online store, track inventory, manage orders, and record offline sales with POS, all from one dashboard.
           </p>
 
           {/* Buttons: stacked on mobile, inline on desktop */}
