@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Container from "../ui/Container";
 import Reveal from "../ui/Reveal";
 import { Plus, Minus, HelpCircle } from "lucide-react";
